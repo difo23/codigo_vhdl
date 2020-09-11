@@ -1,0 +1,7 @@
+v 3
+file . "compara_tb.vhd" "20121202054442.000" "20141026215053.679":
+  entity compara_tb at 1( 0) + 5 on 13;
+  architecture entradas_compara of compara_tb at 7( 133) + 5 on 14;
+file . "compara.vhd" "20121128040806.000" "20141026214501.329":
+  entity compara at 1( 0) + 5 on 11;
+  architecture circ of compara at 12( 261) + 5 on 12;

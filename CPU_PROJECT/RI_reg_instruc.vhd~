@@ -1,0 +1,81 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY instruction_register_test IS
+
+  PORT (
+      SWITCH_IN: INOUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+      CP_IN: INOUT STD_LOGIC_VECTOR);
+
+END instruction_register_test;
+
+ARCHITECTURE test OF instruction_register_test IS
+
+	COMPONENT MP
+	PORT (
+		DIR: IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+		I: INOUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+		LE : IN STD_LOGIC;
+		O: INOUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+	);
+	END COMPONENT;
+
+	COMPONENT COFD
+	PORT (
+		O: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		ERI: IN STD_LOGIC;
+		CO: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+		D: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		F: OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+	END COMPONENT;
+	
+	
+	COMPONENT MUX7
+	PORT (
+		CP: in std_logic_vector(6 downto 0);
+		CO: in std_logic_vector(1 downto 0);
+		F : in std_logic_vector(6 downto 0);
+		D : in std_logic_vector(6 downto 0);
+		SWITCH: in std_logic_vector(1 downto 0);
+		salida_Z: out std_logic_vector(6 downto 0)
+		);
+			
+	END COMPONENT;
+			
+	signal ERI: std_logic;
+	signal SWITCH_SIGNAL: std_logic_vector(1 downto 0);
+	signal CP_SIGNAL: std_logic_vector(6 downto 0);
+	
+	signal SALIDA_Z: std_logic_vector(6 downto 0);
+	signal SALIDA_Z_SIGNAL: std_logic_vector(6 downto 0);
+	
+	signal O: std_logic_vector(15 downto 0);
+	signal O_SIGNAL: std_logic_vector(15 downto 0);
+
+	signal CO: std_logic_vector(1 downto 0);
+	signal F: std_logic_vector(6 downto 0);
+	signal D: std_logic_vector(6 downto 0);
+
+	signal I: std_logic_vector(15 downto 0);
+	signal LE: std_logic;
+
+
+	signal CO_SIGNAL: std_logic_vector(1 downto 0);
+	signal D_SIGNAL: std_logic_vector(6 downto 0);
+	signal F_SIGNAL: std_logic_vector(6 downto 0);
+
+
+	BEGIN
+
+	SWITCH_SIGNAL <= SWITCH_IN;
+	CP_SIGNAL <= CP_IN;
+	SALIDA_Z_SIGNAL <= SALIDA_Z; -- TRAMO QUE CONECTA  MUX Y MP
+	O_SIGNAL <= O ; -- TRAMO QUE CONECTA MP Y COFD
+
+
+        u0: MUX7 PORT MAP (CP_SIGNAL, CO, F, D,SWITCH_SIGNAL,SALIDA_Z_SIGNAL);
+        u1: MP PORT MAP (SALIDA_Z_SIGNAL,I,LE,O_SIGNAL);
+        u2: COFD PORT MAP (O_SIGNAL, ERI,CO_SIGNAL,D_SIGNAL,F_SIGNAL);
+        
+	
+END test;

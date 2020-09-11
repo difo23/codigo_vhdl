@@ -1,0 +1,13 @@
+v 3
+file . "alu.vhd" "20141203181703.000" "20141203191710.900":
+  entity alu at 1( 0) + 0 on 311;
+  architecture entradas_alu of alu at 15( 335) + 0 on 312;
+file . "xor_16.vhd" "20141202012452.000" "20141203191710.834":
+  entity xor_16 at 1( 0) + 0 on 309;
+  architecture xor_comp of xor_16 at 12( 260) + 0 on 310;
+file . "mux_16.vhd" "20141202021501.000" "20141203191710.554":
+  entity mux_16 at 2( 48) + 0 on 305;
+  architecture arq_mux of mux_16 at 17( 437) + 0 on 306;
+file . "sum_16.vhd" "20141202162435.000" "20141203191710.620":
+  entity sum_16 at 1( 0) + 0 on 307;
+  architecture behavior of sum_16 at 16( 287) + 0 on 308;

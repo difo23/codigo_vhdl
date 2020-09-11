@@ -1,0 +1,1 @@
+ghdl -a alu.vhd && ghdl -a cofd.vhd  && ghdl -a control_unit.vhd && ghdl -a cpu.vhd && ghdl -a flip_flop_d.vhd && ghdl -a mp.vhd && ghdl -a mux_7.vhd && ghdl -a mux_16.vhd && ghdl -a sum_16.vhd && ghdl -a up_mp.vhd && ghdl -a xor_16.vhd && ghdl -e cpu && ghdl -r cpu --vcd=cpu.vcd 

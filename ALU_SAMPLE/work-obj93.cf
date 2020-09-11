@@ -1,0 +1,13 @@
+v 3
+file . "aluComponente.vhd" "20121130154844.000" "20141202010922.169":
+  entity alucomponente at 1( 0) + 5 on 25;
+  architecture entradas_alucomponente of alucomponente at 8( 150) + 5 on 26;
+file . "aru.vhd" "20121130002110.000" "20141202010922.008":
+  entity aru at 1( 0) + 5 on 21;
+  architecture synth of aru at 12( 332) + 5 on 22;
+file . "lou.vhd" "20121130153354.000" "20141202010921.895":
+  entity lou at 1( 0) + 5 on 19;
+  architecture synth2 of lou at 12( 327) + 5 on 20;
+file . "muxVector.vhd" "20121130151116.000" "20141202010922.104":
+  entity muxvector at 1( 0) + 5 on 23;
+  architecture cambio of muxvector at 12( 328) + 5 on 24;

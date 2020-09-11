@@ -1,0 +1,10 @@
+v 3
+file . "control_unit.vhd" "20150112142732.000" "20150112211032.745":
+  entity control_unit at 1( 0) + 0 on 79;
+  architecture machinery of control_unit at 24( 467) + 0 on 80;
+file . "alu.vhd" "20141203181703.000" "20150112211032.573":
+  entity alu at 1( 0) + 0 on 75;
+  architecture entradas_alu of alu at 15( 335) + 0 on 76;
+file . "cofd.vhd" "20150109000950.000" "20150112211032.692":
+  entity cofd at 1( 0) + 0 on 77;
+  architecture behavioral of cofd at 16( 277) + 0 on 78;
